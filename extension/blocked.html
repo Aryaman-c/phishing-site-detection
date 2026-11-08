@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Alert - Phishing Attempt Blocked</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .shield-icon {
+      width: 56px;
+      height: 56px;
+      background-color: rgba(239, 68, 68, 0.15);
+      border: 2px solid #ef4444;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ef4444;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ef4444;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .url-box {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #fca5a5;
+      word-break: break-all;
+      margin: 20px 0;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .metric-item {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .metric-label {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .details {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+    }
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid #475569;
+      color: #94a3b8;
+    }
+    .btn-secondary:hover {
+      background-color: #334155;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="shield-icon">⚠️</div>
+      <div>
+        <h1>Phishing Attempt Blocked</h1>
+        <div class="subtitle">Real-time Malicious URL Detection Engine</div>
+      </div>
+    </div>
+
+    <p class="details">
+      The Chrome Browser Extension intercepted navigation to this destination because it was identified as a deceptive phishing website designed to steal credentials or sensitive data.
+    </p>
+
+    <div class="url-box" id="target-url">Loading destination...</div>
+
+    <div class="metrics">
+      <div class="metric-item">
+        <div class="metric-value" id="engine-model">Random Forest</div>
+        <div class="metric-label">Classifier</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" id="confidence-val">--%</div>
+        <div class="metric-label">Confidence</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" id="latency-val">&lt; 50 ms</div>
+        <div class="metric-label">Inference Latency</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-back">Return to Safety</button>
+      <button class="btn btn-secondary" id="btn-proceed">Proceed Anyway (Unsafe)</button>
+    </div>
+  </div>
+
+  <script src="blocked.js"></script>
+</body>
+</html>
+

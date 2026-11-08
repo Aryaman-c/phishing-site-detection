@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Detection Engine</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="title-row">
+        <div class="logo">🛡️</div>
+        <div>
+          <h2>Phishing Detection</h2>
+          <span class="sub">Random Forest Engine</span>
+        </div>
+      </div>
+      <div id="backend-status" class="status-pill status-checking">Connecting...</div>
+    </header>
+
+    <!-- Active Tab Status Card -->
+    <div class="card" id="active-tab-card">
+      <div class="card-label">CURRENT TAB</div>
+      <div class="tab-url" id="current-url">Analyzing current tab...</div>
+      
+      <div class="verdict-banner safe" id="verdict-box">
+        <span class="verdict-icon" id="verdict-icon">✓</span>
+        <span class="verdict-text" id="verdict-text">SECURE & SAFE</span>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-label">CONFIDENCE</div>
+          <div class="stat-value" id="current-confidence">--%</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">LATENCY</div>
+          <div class="stat-value" id="current-latency">&lt; 50 ms</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">F1-SCORE</div>
+          <div class="stat-value text-accent">97%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manual URL Checker Section -->
+    <div class="card">
+      <div class="card-label">QUICK URL INSPECTION</div>
+      <div class="input-group">
+        <input type="text" id="manual-url-input" placeholder="https://example.com/login" />
+        <button id="btn-inspect" class="btn-primary">Inspect</button>
+      </div>
+      
+      <div id="manual-result" class="manual-result hidden">
+        <div class="manual-result-row">
+          <span id="manual-verdict" class="tag-badge">SAFE</span>
+          <span id="manual-metrics" class="metrics-sub">Confidence: -- | -- ms</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>FastAPI Asynchronous Backend (< 50ms)</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
